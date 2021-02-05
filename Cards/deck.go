@@ -28,7 +28,16 @@ func (d deck) shuffle() {
 	rand.Shuffle(len(d), func(i, j int) { d[i], d[j] = d[j], d[i] })
 }
 func deal(d deck, handSize int) (deck, deck) {
-	return d[:handSize], d[handSize:]
+	if handSize >= 0 {
+		return d[:handSize], d[handSize:]
+	} else if handSize > len(d) {
+		fmt.Print("cannot deal more cards than deck has")
+		return d, nil
+	} else {
+		fmt.Print("Error occured")
+		return d, nil
+	}
+
 }
 func (d deck) print() {
 	for _, card := range d {
