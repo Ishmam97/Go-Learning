@@ -13,6 +13,9 @@ func main() {
 		"http://stackoverflow.com",
 		"http://ishmamsolaiman.com",
 	}
+
+	c := make(chan string)
+
 	// st := time.Now()
 	// for _, link := range links {
 	// 	seqCheckLink(link)
@@ -22,7 +25,11 @@ func main() {
 	//go routine
 	st := time.Now()
 	for _, link := range links {
-		go seqCheckLink(link)
+		go seqCheckLink(link, c)
+
+	}
+	for i := 0; i < len(links); i++ {
+		fmt.Println(<-c)
 	}
 	et := time.Now()
 	fmt.Println("time taken for go Routine = ", et.Sub(st))
@@ -30,11 +37,13 @@ func main() {
 
 //sequential
 
-func seqCheckLink(link string) {
+func seqCheckLink(link string, c chan string) {
 	_, err := http.Get(link)
 	if err != nil {
-		fmt.Println(link + "might be down!")
+		fmt.Println(link, "might be down!")
+		c <- "down"
 		return
 	}
 	fmt.Println(link, " is up")
+	c <- "up"
 }
