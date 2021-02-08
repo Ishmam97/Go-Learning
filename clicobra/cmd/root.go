@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"os"
+	//"os"
 
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
@@ -40,8 +40,8 @@ func init() {
 	viper.SetDefault("author", "NAME HERE <EMAIL ADDRESS>")
 	viper.SetDefault("license", "apache")
 
-	rootCmd.AddCommand(addCmd)
-	rootCmd.AddCommand(initCmd)
+	//rootCmd.AddCommand(addCmd)
+	//rootCmd.AddCommand(initCmd)
 }
 
 func initConfig() {

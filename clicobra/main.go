@@ -1,7 +1,7 @@
 package main
 
 import (
-	"C:/Coding/Go-Learning/clicobra/cmd"
+	"github.com/Ishmam97/Go-Learning/clicobra/cmd"
 )
 
 func main() {
