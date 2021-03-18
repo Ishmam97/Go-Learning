@@ -34,6 +34,16 @@ func main() {
 	// p4Pointer := &p4
 	// p4Pointer.updateName("ISSHMEMMEEME")
 	p4.updateName("traaa")
+	p5 := &person{
+		firstName: "p5",
+		lastName:  "pppt",
+		contact: contactInfo{
+			email: "sg",
+			phone: "1034",
+		},
+	}
+	p5.firstName = "ps"
+	p5.toString()
 	p4.toString()
 }
 func (p person) toString() {
